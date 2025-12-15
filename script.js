@@ -42,7 +42,7 @@ const projects = [
     skills: ["Infraestructura IT", "Networking", "Docker", "Scripting", "Soporte Técnico"],
   },
   {
-    title: "SegurCaixa S.A.",
+    title: "ETT IT S.A.",
     period: "2022–2025 | Administrador L2/L3",
     description:
       "Soporte remoto y presencial a clínicas Adeslas. Administración avanzada de Active Directory y GPO, despliegues con SCCM. Integración con sistemas HIS y soporte de red (VLAN, switches). Mantenimiento preventivo y correctivo de infraestructura crítica.",
