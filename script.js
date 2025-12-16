@@ -63,7 +63,7 @@ const contactData = [
     title: "Email",
     icon: "✉️",
     link: "mailto:sergioesquinass@gmail.com",
-    text: "sergioesquinass@gmail.com",
+    text: "GMAIL",
   },
   {
     title: "WhatsApp",
