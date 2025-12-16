@@ -3,103 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sergio Sánchez - Administrador de Sistemas e Infraestructura IT">
-    <title>Sergio Sánchez | Administrador de Sistemas & Infraestructura IT</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Sergio | Administrador de Sistemas & Infraestructura IT</title>
+    <style>
+        /* Reset */
+        * {margin:0; padding:0; box-sizing:border-box;}
+        body {font-family: 'Segoe UI', sans-serif; background:#0f0f0f; color:#fff; line-height:1.6; overflow-x:hidden;}
+        a {text-decoration:none;}
+
+        :root {
+            --primary:#00ff41;
+            --background:#0f0f0f;
+            --surface:#1a1a1a;
+            --text:#ffffff;
+            --text-light:#b0b0b0;
+            --border:2px solid var(--primary);
+            --shadow-glow:0 0 15px var(--primary);
+        }
+
+        /* Container */
+        .container {max-width:1200px; margin:0 auto; padding:0 20px;}
+
+        /* Header */
+        header {position: sticky; top:0; background:var(--background); border-bottom:var(--border); z-index:1000;}
+        .header-inner {display:flex; justify-content:space-between; align-items:center; padding:1.5rem 0; max-width:1200px; margin:0 auto;}
+        .brand a {font-size:2rem; font-weight:900; color:var(--primary); cursor:pointer;}
+        nav {display:flex; gap:2rem;}
+        nav a {color:var(--text-light); transition:0.3s;}
+        nav a:hover {color:var(--primary);}
+        .mobile-btn{display:none; font-size:2rem; background:none; border:none; color:var(--primary); cursor:pointer;}
+
+        /* Hero */
+        .hero {text-align:center; padding:6rem 20px; display:flex; flex-direction:column; justify-content:center; align-items:center;}
+        .hero h1 {font-size:4rem; color:var(--primary); margin-bottom:1rem; text-shadow:0 0 10px var(--primary);}
+        .hero p {max-width:700px; color:var(--text-light); font-size:1.1rem; margin:0.5rem 0;}
+
+        /* Stats */
+        .stats {display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; margin:4rem 0;}
+        .stat-card {border:var(--border); border-radius:12px; padding:2rem; text-align:center; transition:0.3s; cursor:pointer; background:var(--surface);}
+        .stat-card:hover {box-shadow:var(--shadow-glow); transform:translateY(-5px);}
+        .stat-card h3 {font-size:2.5rem; color:var(--primary); margin-bottom:0.5rem;}
+        .stat-card span {color:var(--text-light);}
+
+        /* Sections */
+        section {padding:4rem 20px;}
+        .section-title {font-size:2.5rem; color:var(--primary); margin-bottom:3rem; text-align:center;}
+
+        /* Skills */
+        .skills-grid {display:grid; grid-template-columns:repeat(2,1fr); gap:2rem;}
+        .skill-card {border:var(--border); border-radius:12px; padding:2rem; background:var(--surface); transition:0.3s;}
+        .skill-card:hover {box-shadow:var(--shadow-glow); transform:translateY(-5px);}
+        .skill-card h4 {color:var(--primary); margin-bottom:0.5rem;}
+        .skill-card p {color:var(--text-light); margin-bottom:1rem;}
+        .skill-tags {display:flex; flex-wrap:wrap; gap:0.5rem;}
+        .skill-tag {border:var(--border); padding:0.5rem 1rem; border-radius:25px; color:var(--primary); transition:0.3s; cursor:pointer;}
+        .skill-tag:hover {background:var(--primary); color:var(--background);}
+
+        /* Projects */
+        .projects-grid {display:grid; grid-template-columns:1fr; gap:2rem;}
+        .project-card {border:var(--border); border-radius:12px; padding:2rem; background:var(--surface); transition:0.3s;}
+        .project-card:hover {box-shadow:var(--shadow-glow); transform:translateY(-5px);}
+        .project-card h4 {color:var(--primary); margin-bottom:0.5rem;}
+        .project-card p {color:var(--text-light); margin-bottom:0.5rem; line-height:1.5;}
+        .project-tags {display:flex; flex-wrap:wrap; gap:0.5rem;}
+        .project-tag {border:var(--border); padding:0.5rem 1rem; border-radius:25px; color:var(--primary); cursor:pointer;}
+        .project-tag:hover {background:var(--primary); color:var(--background);}
+
+        /* Contact */
+        .contact-grid {display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; margin-top:2rem;}
+        .contact-card {border:var(--border); border-radius:12px; padding:2rem; text-align:center; background:var(--surface); transition:0.3s; cursor:pointer;}
+        .contact-card:hover {box-shadow:var(--shadow-glow); transform:translateY(-5px);}
+        .contact-card h4 {margin:0.5rem 0; color:var(--primary);}
+        .contact-card p {margin:0; color:var(--text-light);}
+
+        /* Footer */
+        footer {text-align:center; padding:3rem 0; border-top:var(--border); color:var(--text-light);}
+
+        /* Responsive */
+        @media (max-width:768px){
+            nav{display:none; flex-direction:column;}
+            .mobile-btn{display:block;}
+            .skills-grid{grid-template-columns:1fr;}
+            .stats{grid-template-columns:1fr; gap:1.5rem;}
+            .hero h1{font-size:3rem;}
+            .project-card{padding:1.5rem;}
+            .contact-grid{grid-template-columns:1fr;}
+        }
+    </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="brand">Sergio IT</div>
-                <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
-                
-                <!-- Desktop Nav -->
-                <nav class="nav-links" id="navLinks">
-                    <a href="#expertise">Sobre mí</a>
-                    <a href="#expertise">Stacks/Skills</a>
-                    <a href="#projects">Proyectos</a>
-                    <a href="#contact">Contacto</a>
-                </nav>
-            </div>
-        </div>
-    </header>
+<!-- Header -->
+<header>
+    <div class="header-inner">
+        <div class="brand"><a href="#about">Sergio IT</a></div>
+        <nav id="navLinks">
+            <a href="#about">Sobre mí</a>
+            <a href="#expertise">Skills</a>
+            <a href="#projects">Proyectos</a>
+            <a href="#contact">Contacto</a>
+        </nav>
+        <button class="mobile-btn" id="mobileBtn">☰</button>
+    </div>
+</header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <p class="greeting">Hola, soy</p>
-            <h2 class="hero-name">Sergio</h2>
-            <p class="hero-title">Administrador de Sistemas & Infraestructura IT</p>
-            <p class="hero-description">+15 años de experiencia en infraestructura IT, networking avanzado y soporte técnico para PYMES y empresas. Especialista en Windows Server, Linux, administración de redes y virtualización en entornos críticos.</p>
-        </div>
-    </section>
+<!-- Hero -->
+<section class="hero" id="about">
+    <h1>Sergio</h1>
+    <p>Administrador de Sistemas & Infraestructura IT</p>
+    <p>+15 años de experiencia en infraestructura IT, networking avanzado y soporte técnico para PYMES y empresas.</p>
+</section>
 
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number">15+</div>
-                    <p class="stat-label">Años de Experiencia</p>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">50+</div>
-                    <p class="stat-label">Clientes Satisfechos</p>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">99.9%</div>
-                    <p class="stat-label">Disponibilidad</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Stats -->
+<section class="container stats">
+    <div class="stat-card"><h3>15+</h3><span>Años de Experiencia</span></div>
+    <div class="stat-card"><h3>50+</h3><span>Clientes Satisfechos</span></div>
+    <div class="stat-card"><h3>99.9%</h3><span>Disponibilidad</span></div>
+</section>
 
-    <!-- Stacks/Skills Section -->
-    <section class="expertise" id="expertise">
-        <div class="container">
-            <h3 class="section-title">Stacks/Skills</h3>
-            <div class="skills-grid" id="skillsGrid">
-                <!-- Skills cards will be generated here -->
-            </div>
-        </div>
-    </section>
+<!-- Skills -->
+<section id="expertise">
+    <h2 class="section-title">Stacks / Skills</h2>
+    <div class="container skills-grid" id="skillsGrid"></div>
+</section>
 
-    <!-- Projects Section -->
-    <section class="projects" id="projects">
-        <div class="container">
-            <h3 class="section-title">Últimos Proyectos</h3>
-            <div class="projects-grid" id="projectsGrid">
-                <!-- Projects cards will be generated here -->
-            </div>
-        </div>
-    </section>
+<!-- Projects -->
+<section id="projects">
+    <h2 class="section-title">Últimos Proyectos</h2>
+    <div class="container projects-grid" id="projectsGrid"></div>
+</section>
 
-    <!-- CTA Section -->
-    <section class="cta">
-        <div class="container">
-            <h3>Iniciemos una Conversación</h3>
-            <p>¿Tienes un proyecto desafiante o necesitas optimizar tu infraestructura? Estoy disponible para nuevas oportunidades y colaboraciones.</p>
-        </div>
-    </section>
+<!-- Contact -->
+<section id="contact">
+    <h2 class="section-title">Contacto</h2>
+    <div class="container contact-grid" id="contactGrid"></div>
+</section>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="contact-grid" id="contactGrid">
-                <!-- Contact cards will be generated here -->
-            </div>
-        </div>
-    </section>
+<!-- Footer -->
+<footer>
+    © 2025 Sergio - Administrador de Sistemas. Optimizando infraestructuras IT.
+</footer>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>© 2025 Sergio IT - Administrador de Sistemas. Optimizando infraestructuras IT.</p>
-        </div>
-    </footer>
+<!-- Script -->
+<script>
+    // Mobile menu
+    const mobileBtn = document.getElementById('mobileBtn');
+    const navLinks = document.getElementById('navLinks');
+    mobileBtn.addEventListener('click', ()=> navLinks.classList.toggle('open'));
 
-    <script src="script.js"></script>
+    // Smooth scroll
+    document.querySelectorAll('nav a, .brand a').forEach(a=>{
+        a.addEventListener('click', e=>{
+            e.preventDefault();
+            const target = document.querySelector(a.getAttribute('href'));
+            if(target) target.scrollIntoView({behavior:'smooth'});
+            if(window.innerWidth<768) navLinks.classList.remove('open');
+        });
+    });
+
+    // Data
+    const skills = [
+        {title:"Sistemas Operativos", desc:"Experiencia completa en múltiples plataformas", tags:["Windows XP-11","Linux Server","macOS/Hackintosh"]},
+        {title:"Administración de Sistemas", desc:"Gestión integral de infraestructura IT para PYMES", tags:["Active Directory","Windows Server","SCCM","NAS","NAGIOS","CACTI","PRTG"]},
+        {title:"Networking", desc:"Diseño y mantenimiento de redes corporativas", tags:["Cisco","Firewalls","VPN","VLANs","Cableado Estructurado","pfSense"]},
+        {title:"Cloud & Virtualización", desc:"Entornos cloud, hosting y contenedores", tags:["Docker","VPS","Hosting","Backups","Migraciones","SSL"]},
+        {title:"Software & Herramientas", desc:"Plataformas de gestión y comunicación", tags:["Moodle","Chamilo","BigBlueButton","ServiceNow","Jira","Freshdesk"]},
+        {title:"Hardware & Soporte", desc:"Montaje, mantenimiento y solución de incidencias", tags:["Ensamblaje","Imagenología Dental","Servidores","Certificados Digitales","DNI Electrónico"]},
+    ];
+    const projects = [
+        {title:"Freelance", period:"2014–Actualidad", desc:"Gestión integral de infraestructura IT para clientes particulares y PYMES. Networking avanzado, multi-OS, VPS/Hosting/Docker. Mantenimiento de aulas virtuales, CRM, CMS y plataformas de videoconferencia. Creación de scripts, migraciones de sistemas y soporte técnico especializado.", tags:["Infraestructura IT","Networking","Docker","Scripting","Soporte Técnico"]},
+        {title:"ETT S.A.", period:"2022–2025 | Administrador L2/L3", desc:"Soporte remoto y presencial a clínicas Adeslas. Administración avanzada de Active Directory y GPO, despliegues con SCCM. Integración con sistemas HIS y soporte de red (VLAN, switches). Mantenimiento preventivo y correctivo de infraestructura crítica.", tags:["Active Directory","SCCM","VLAN","Sistemas HIS","Soporte Remoto"]},
+        {title:"M2 Sistemas SL / Vithas Sanidad", period:"2022 | Administrador L2", desc:"Administración Windows y Linux Server, Active Directory, impresoras y escáneres. Configuración de redes, VPNs y teletrabajo. Soporte a empresas, diseño web y desarrollo básico. Gestión de entornos corporativos multi-sitio.", tags:["Windows Server","Linux","VPN","Redes Corporativas","Teletrabajo"]},
+    ];
+    const contacts = [
+        {icon:"✉️", title:"Email", value:"GMAIL", href:"mailto:sergioesquinass@gmail.com"},
+        {icon:"💬", title:"WhatsApp", value:"+34 643 624 744", href:"https://wa.me/34643624744", target:"_blank"},
+        {icon:"💼", title:"LinkedIn", value:"Mi Perfil", href:"https://www.linkedin.com/in/sergio-e-651408219/", target:"_blank"},
+        {icon:"💻", title:"GitHub", value:"Mi Perfil", href:"https://github.com/elunicoantivirus", target:"_blank"},
+        {icon:"📄", title:"Curriculum Vitae", value:"CV", href:"https://drive.google.com/drive/folders/19wtAQxHcFaaC5SFYytOfTj39hsLB9P_T", target:"_blank"},
+    ];
+
+    // Render skills
+    const skillsGrid = document.getElementById('skillsGrid');
+    skills.forEach(s=>{
+        const card=document.createElement('div');
+        card.className='skill-card';
+        card.innerHTML=`<h4>${s.title}</h4><p>${s.desc}</p><div class="skill-tags">${s.tags.map(t=>`<span class="skill-tag">${t}</span>`).join('')}</div>`;
+        skillsGrid.appendChild(card);
+    });
+
+    // Render projects
+    const projectsGrid = document.getElementById('projectsGrid');
+    projects.forEach(p=>{
+        const card=document.createElement('div');
+        card.className='project-card';
+        card.innerHTML=`<h4>${p.title}</h4><p style="color:var(--text-light);font-size:0.95rem;margin-bottom:0.5rem;">${p.period}</p><p>${p.desc}</p><div class="project-tags">${p.tags.map(t=>`<span class="project-tag">${t}</span>`).join('')}</div>`;
+        projectsGrid.appendChild(card);
+    });
+
+    // Render contacts
+    const contactGrid = document.getElementById('contactGrid');
+    contacts.forEach(c=>{
+        const card=document.createElement('div');
+        card.className='contact-card';
+        card.innerHTML=`<p style="font-size:2rem;">${c.icon}</p><h4>${c.title}</h4><p>${c.value}</p>`;
+        card.addEventListener('click',()=>window.open(c.href,c.target||'_self'));
+        contactGrid.appendChild(card);
+    });
+</script>
 </body>
 </html>
